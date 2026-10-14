@@ -18,7 +18,7 @@ namespace doctor
                 DataTable dt = new DataTable();
                 int found = 0;
 
-                int did = (int)Session["idoriginal"];
+                int did = (int)HttpContext.Current.Session["idoriginal"];
 
                 found = objmydal.search_patient_DAL(did, ref dt);
                 if (found != 1)
@@ -43,7 +43,7 @@ namespace doctor
                 //retrieve appointmentid  from that row (key-non editable)
                 int appointmentid = Convert.ToInt32(aId);
 
-                Session["appointid"] = appointmentid;
+                HttpContext.Current.Session["appointid"] = appointmentid;
                 Response.Redirect("Historyupdate.aspx");
             }
         }

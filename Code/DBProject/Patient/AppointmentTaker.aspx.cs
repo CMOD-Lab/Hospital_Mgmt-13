@@ -14,7 +14,7 @@ namespace DBProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["freeSlot"] = "";
+            HttpContext.Current.Session["freeSlot"] = "";
             freeSlots(sender, e);
         }
 
@@ -30,7 +30,7 @@ namespace DBProject
 
                 string[] tokens = appointment.Split(':');
 
-                Session["freeSlot"] = tokens[0];
+                HttpContext.Current.Session["freeSlot"] = tokens[0];
 
                 Response.BufferOutput = true;
                 Response.Redirect("AppointmentRequestSent.aspx");
@@ -49,12 +49,12 @@ namespace DBProject
             DataTable DT = new DataTable();
 
 
-            string dID1 = (string)Session["dID"];
+            string dID1 = (string)HttpContext.Current.Session["dID"];
 
             int dID = Convert.ToInt32(dID1);
 
 
-            int pID = (int)Session["idoriginal"];
+            int pID = (int)HttpContext.Current.Session["idoriginal"];
 
             
             int status = objmyDAl.getFreeSlots(dID, pID, ref DT);

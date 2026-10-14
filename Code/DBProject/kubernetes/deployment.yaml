@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbproject
+  namespace: dbproject
+  labels:
+    app: dbproject
+    version: "1.0"
+    component: web
+    managed-by: kubectl
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dbproject
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: dbproject
+        version: "1.0"
+        component: web
+    spec:
+      # Windows node selector — required for .NET Framework Windows containers on EKS
+      nodeSelector:
+        kubernetes.io/os: windows
+      tolerations:
+        - key: "os"
+          operator: "Equal"
+          value: "windows"
+          effect: "NoSchedule"
+      containers:
+        - name: dbproject
+          image: "{{IMAGE_URI}}"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          env:
+            # ── Database ──────────────────────────────────────────────────
+            - name: DB_CONNECTION_STRING
+              value: "{{DB_CONNECTION_STRING}}"
+            - name: DB_HOST
+              value: "{{DB_HOST}}"
+            - name: DB_NAME
+              value: "{{DB_NAME}}"
+            - name: DB_USER
+              value: "{{DB_USER}}"
+            - name: DB_PASSWORD
+              value: "{{DB_PASSWORD}}"
+            # ── Redis Session State (ElastiCache) ─────────────────────────
+            - name: REDIS_HOST
+              value: "{{REDIS_HOST}}"
+            - name: REDIS_PORT
+              value: "{{REDIS_PORT}}"
+            - name: REDIS_ACCESS_KEY
+              value: "{{REDIS_ACCESS_KEY}}"
+            # ── Application Insights ──────────────────────────────────────
+            - name: APPINSIGHTS_INSTRUMENTATIONKEY
+              value: "{{APPINSIGHTS_INSTRUMENTATIONKEY}}"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 90
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
+            successThreshold: 1
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 15
+            timeoutSeconds: 10
+            failureThreshold: 3
+            successThreshold: 1
+      terminationGracePeriodSeconds: 60

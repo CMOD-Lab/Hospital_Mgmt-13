@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyName>DBProject</AssemblyName>
+    <RootNamespace>DBProject</RootNamespace>
+    <ProjectGuid>{B2ABDB6C-A1B7-460C-84D1-FB2317C5C666}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <Optimize Condition="'$(Configuration)' == 'Release'">true</Optimize>
+    <DebugType Condition="'$(Configuration)' == 'Release'">none</DebugType>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
+    <DebugType Condition="'$(Configuration)' == 'Debug'">full</DebugType>
+    <DebugSymbols Condition="'$(Configuration)' == 'Debug'">true</DebugSymbols>
+    <OutputPath Condition="'$(Configuration)' == 'Debug'">bin\</OutputPath>
+    <OutputPath Condition="'$(Configuration)' == 'Release'">bin\</OutputPath>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights" Version="2.2.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.Agent.Intercept" Version="2.0.6" />
+    <PackageReference Include="Microsoft.ApplicationInsights.DependencyCollector" Version="2.2.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.PerfCounterCollector" Version="2.2.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.Web" Version="2.2.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.2.0" />
+    <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Web.RedisSessionStateProvider" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="DAL\myDAL.cs" />
+    <Compile Include="HealthCheckHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddStaff.aspx.cs">
+      <DependentUpon>AddStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddStaff.aspx.designer.cs">
+      <DependentUpon>AddStaff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminHome.aspx.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminHome.aspx.designer.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DoctorRegistrationForm.aspx.cs">
+      <DependentUpon>DoctorRegistrationForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DoctorRegistrationForm.aspx.designer.cs">
+      <DependentUpon>DoctorRegistrationForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageClinic.aspx.cs">
+      <DependentUpon>ManageClinic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageClinic.aspx.designer.cs">
+      <DependentUpon>ManageClinic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\Bill.aspx.cs">
+      <DependentUpon>Bill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\Bill.aspx.designer.cs">
+      <DependentUpon>Bill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorHome.aspx.cs">
+      <DependentUpon>DoctorHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\DoctorHome.aspx.designer.cs">
+      <DependentUpon>DoctorHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorMaster.Master.cs">
+      <DependentUpon>DoctorMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\DoctorMaster.Master.designer.cs">
+      <DependentUpon>DoctorMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\HistoryUpdate.aspx.cs">
+      <DependentUpon>HistoryUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\HistoryUpdate.aspx.designer.cs">
+      <DependentUpon>HistoryUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\PatientHistory.aspx.cs">
+      <DependentUpon>PatientHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\PatientHistory.aspx.designer.cs">
+      <DependentUpon>PatientHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\PendingAppointment.aspx.cs">
+      <DependentUpon>PendingAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\PendingAppointment.aspx.designer.cs">
+      <DependentUpon>PendingAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\PreviousHistory.aspx.cs">
+      <DependentUpon>PreviousHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\PreviousHistory.aspx.designer.cs">
+      <DependentUpon>PreviousHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\AppointmentRequestSent.aspx.cs">
+      <DependentUpon>AppointmentRequestSent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\AppointmentRequestSent.aspx.designer.cs">
+      <DependentUpon>AppointmentRequestSent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\AppointmentTaker.aspx.cs">
+      <DependentUpon>AppointmentTaker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\AppointmentTaker.aspx.designer.cs">
+      <DependentUpon>AppointmentTaker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\BillsHistory.aspx.cs">
+      <DependentUpon>BillsHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\BillsHistory.aspx.designer.cs">
+      <DependentUpon>BillsHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\CurrentAppointment.aspx.cs">
+      <DependentUpon>CurrentAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\CurrentAppointment.aspx.designer.cs">
+      <DependentUpon>CurrentAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\DoctorProfile.aspx.cs">
+      <DependentUpon>DoctorProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\DoctorProfile.aspx.designer.cs">
+      <DependentUpon>DoctorProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\PatientFeedback.aspx.cs">
+      <DependentUpon>PatientFeedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientFeedback.aspx.designer.cs">
+      <DependentUpon>PatientFeedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\PatientHome.aspx.cs">
+      <DependentUpon>PatientHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientHome.aspx.designer.cs">
+      <DependentUpon>PatientHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\PatientMaster.Master.cs">
+      <DependentUpon>PatientMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientMaster.Master.designer.cs">
+      <DependentUpon>PatientMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\PatientNotifications.aspx.cs">
+      <DependentUpon>PatientNotifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientNotifications.aspx.designer.cs">
+      <DependentUpon>PatientNotifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\TakeAppointment.aspx.cs">
+      <DependentUpon>TakeAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\TakeAppointment.aspx.designer.cs">
+      <DependentUpon>TakeAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\TreatmentHistory.aspx.cs">
+      <DependentUpon>TreatmentHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\TreatmentHistory.aspx.designer.cs">
+      <DependentUpon>TreatmentHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\ViewDoctors.aspx.cs">
+      <DependentUpon>ViewDoctors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\ViewDoctors.aspx.designer.cs">
+      <DependentUpon>ViewDoctors.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Admin\AddStaff.aspx" />
+    <Content Include="Admin\AdminHome.aspx" />
+    <Content Include="Admin\Admin.Master" />
+    <Content Include="Admin\DoctorRegistrationForm.aspx" />
+    <Content Include="Admin\ManageClinic.aspx" />
+    <Content Include="Doctor\Bill.aspx" />
+    <Content Include="Doctor\DoctorHome.aspx" />
+    <Content Include="Doctor\DoctorMaster.Master" />
+    <Content Include="Doctor\HistoryUpdate.aspx" />
+    <Content Include="Doctor\PatientHistory.aspx" />
+    <Content Include="Doctor\PendingAppointment.aspx" />
+    <Content Include="Doctor\PreviousHistory.aspx" />
+    <Content Include="Patient\AppointmentRequestSent.aspx" />
+    <Content Include="Patient\AppointmentTaker.aspx" />
+    <Content Include="Patient\BillsHistory.aspx" />
+    <Content Include="Patient\CurrentAppointment.aspx" />
+    <Content Include="Patient\DoctorProfile.aspx" />
+    <Content Include="Patient\PatientFeedback.aspx" />
+    <Content Include="Patient\PatientHome.aspx" />
+    <Content Include="Patient\PatientMaster.Master" />
+    <Content Include="Patient\PatientNotifications.aspx" />
+    <Content Include="Patient\TakeAppointment.aspx" />
+    <Content Include="Patient\TreatmentHistory.aspx" />
+    <Content Include="Patient\ViewDoctors.aspx" />
+    <Content Include="SignUp.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

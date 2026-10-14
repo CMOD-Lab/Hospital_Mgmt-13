@@ -22,7 +22,7 @@ namespace doctor
         {
                 myDAL objDAL = new myDAL();
                 
-               int did = (int)Session["idoriginal"];
+               int did = (int)HttpContext.Current.Session["idoriginal"];
 
                     DataTable DT = new DataTable();
 

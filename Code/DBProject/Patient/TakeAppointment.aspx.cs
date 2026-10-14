@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,7 +14,8 @@ namespace DBProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["deptOriginal"] = "";
+            // Distributed Redis-backed session via Amazon ElastiCache (EKS/ElastiCache) - replaces InProc session
+            HttpContext.Current.Session["deptOriginal"] = "";
             deptInfo(sender, e);
 
         }
@@ -28,7 +29,8 @@ namespace DBProject
 
                 string deptName = TDeptGrid.Rows[num].Cells[2].Text;
 
-                Session["deptOriginal"] = deptName;
+                // Distributed Redis-backed session via Amazon ElastiCache (EKS/ElastiCache) - replaces InProc session
+                HttpContext.Current.Session["deptOriginal"] = deptName;
 
                 Response.BufferOutput = true;
                 Response.Redirect("ViewDoctors.aspx");
@@ -68,7 +70,6 @@ namespace DBProject
 
 
         //-----------------------Add a new function here------------------//
-
 
 
 

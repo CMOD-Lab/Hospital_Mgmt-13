@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,8 +27,8 @@ namespace DBProject
 
             DataTable DT = new DataTable();
 
-
-            int id = (int)Session["idoriginal"];
+            // Distributed Redis-backed session via Amazon ElastiCache (EKS/ElastiCache) - replaces InProc session
+            int id = (int)HttpContext.Current.Session["idoriginal"];
 
 
             int status = objmyDAl.getTreatmentHistory(id, ref DT);

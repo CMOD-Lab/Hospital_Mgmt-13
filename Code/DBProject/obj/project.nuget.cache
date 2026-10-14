@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "jKLPiwBhRGY=",
+  "success": false,
+  "projectFilePath": "/modernize-data/studio-data/TNT1001/APP596381/transformed-code/133/studio-workspace/test/Code/DBProject/DBProject.csproj",
+  "expectedPackageFiles": [
+    "/app/.nuget/packages/microsoft.applicationinsights/2.2.0/microsoft.applicationinsights.2.2.0.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.applicationinsights.agent.intercept/2.0.6/microsoft.applicationinsights.agent.intercept.2.0.6.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.applicationinsights.dependencycollector/2.2.0/microsoft.applicationinsights.dependencycollector.2.2.0.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.applicationinsights.perfcountercollector/2.2.0/microsoft.applicationinsights.perfcountercollector.2.2.0.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.applicationinsights.web/2.2.0/microsoft.applicationinsights.web.2.2.0.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.applicationinsights.windowsserver/2.2.0/microsoft.applicationinsights.windowsserver.2.2.0.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.applicationinsights.windowsserver.telemetrychannel/2.2.0/microsoft.applicationinsights.windowsserver.telemetrychannel.2.2.0.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.codedom.providers.dotnetcompilerplatform/1.0.0/microsoft.codedom.providers.dotnetcompilerplatform.1.0.0.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.net.compilers/1.0.0/microsoft.net.compilers.1.0.0.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.netframework.referenceassemblies.net452/1.0.3/microsoft.netframework.referenceassemblies.net452.1.0.3.nupkg.sha512",
+    "/app/.nuget/packages/microsoft.web.redissessionstateprovider/4.0.1/microsoft.web.redissessionstateprovider.4.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.Web.RedisSessionStateProvider 4.0.1 is not compatible with net452 (.NETFramework,Version=v4.5.2). Package Microsoft.Web.RedisSessionStateProvider 4.0.1 supports: net462 (.NETFramework,Version=v4.6.2)",
+      "projectPath": "/modernize-data/studio-data/TNT1001/APP596381/transformed-code/133/studio-workspace/test/Code/DBProject/DBProject.csproj",
+      "filePath": "/modernize-data/studio-data/TNT1001/APP596381/transformed-code/133/studio-workspace/test/Code/DBProject/DBProject.csproj",
+      "libraryId": "Microsoft.Web.RedisSessionStateProvider",
+      "targetGraphs": [
+        "net452"
+      ]
+    }
+  ]
+}

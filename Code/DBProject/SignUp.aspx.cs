@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,7 +14,8 @@ namespace DBProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["idoriginal"] = "";
+            // Distributed Redis-backed session via Amazon ElastiCache (EKS/ElastiCache) - replaces InProc session
+            HttpContext.Current.Session["idoriginal"] = "";
         }
 
         //-----------------------Function1--------------------------//
@@ -33,7 +34,8 @@ namespace DBProject
 
             if (status == 0)
             {
-                Session["idoriginal"] = id;
+                // Distributed Redis-backed session via Amazon ElastiCache (EKS/ElastiCache) - replaces InProc session
+                HttpContext.Current.Session["idoriginal"] = id;
 
                 if (type == 1)
                 {
@@ -106,7 +108,8 @@ namespace DBProject
 
             else if (status == 1)
             {
-                Session["idoriginal"] = id;
+                // Distributed Redis-backed session via Amazon ElastiCache (EKS/ElastiCache) - replaces InProc session
+                HttpContext.Current.Session["idoriginal"] = id;
 
               //Response.Write("<script>alert('Registration Successful !');</script>");
 

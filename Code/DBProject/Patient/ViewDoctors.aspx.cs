@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,7 +14,8 @@ namespace DBProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["dID"] = "";
+            // Distributed Redis-backed session via Amazon ElastiCache (EKS/ElastiCache) - replaces InProc session
+            HttpContext.Current.Session["dID"] = "";
             deptDoctorInfo(sender, e);
         }
 
@@ -27,7 +28,8 @@ namespace DBProject
 
                 string dID = TDoctorGrid.Rows[num].Cells[2].Text;
   
-                Session["dID"] = dID;
+                // Distributed Redis-backed session via Amazon ElastiCache (EKS/ElastiCache) - replaces InProc session
+                HttpContext.Current.Session["dID"] = dID;
 
                 Response.BufferOutput = true;
                 Response.Redirect("DoctorProfile.aspx");
@@ -46,7 +48,8 @@ namespace DBProject
 
             DataTable DT = new DataTable();
 
-            string deptName = (string) Session["deptOriginal"];
+            // Distributed Redis-backed session via Amazon ElastiCache (EKS/ElastiCache) - replaces InProc session
+            string deptName = (string) HttpContext.Current.Session["deptOriginal"];
 
             int status = objmyDAl.getDeptDoctorInfo(deptName, ref DT);
 
@@ -58,7 +61,8 @@ namespace DBProject
 
             else
             {
-                TDoctor.Text = "Following are our Specialized Doctors of " + Session["deptOriginal"] + " Department:";
+                // Distributed Redis-backed session via Amazon ElastiCache (EKS/ElastiCache) - replaces InProc session
+                TDoctor.Text = "Following are our Specialized Doctors of " + HttpContext.Current.Session["deptOriginal"] + " Department:";
                 TDoctorGrid.DataSource = DT;
                 TDoctorGrid.DataBind();
             }

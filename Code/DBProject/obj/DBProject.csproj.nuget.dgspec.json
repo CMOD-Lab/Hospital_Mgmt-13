@@ -1,0 +1,97 @@
+{
+  "format": 1,
+  "restore": {
+    "/modernize-data/studio-data/TNT1001/APP596381/transformed-code/133/studio-workspace/test/Code/DBProject/DBProject.csproj": {}
+  },
+  "projects": {
+    "/modernize-data/studio-data/TNT1001/APP596381/transformed-code/133/studio-workspace/test/Code/DBProject/DBProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/modernize-data/studio-data/TNT1001/APP596381/transformed-code/133/studio-workspace/test/Code/DBProject/DBProject.csproj",
+        "projectName": "DBProject",
+        "projectPath": "/modernize-data/studio-data/TNT1001/APP596381/transformed-code/133/studio-workspace/test/Code/DBProject/DBProject.csproj",
+        "packagesPath": "/app/.nuget/packages/",
+        "outputPath": "/modernize-data/studio-data/TNT1001/APP596381/transformed-code/133/studio-workspace/test/Code/DBProject/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/app/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net452"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net452": {
+            "framework": "net452",
+            "targetAlias": "net452",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.400"
+      },
+      "frameworks": {
+        "net452": {
+          "framework": "net452",
+          "targetAlias": "net452",
+          "dependencies": {
+            "Microsoft.ApplicationInsights": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.ApplicationInsights.Agent.Intercept": {
+              "target": "Package",
+              "version": "[2.0.6, )"
+            },
+            "Microsoft.ApplicationInsights.DependencyCollector": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.ApplicationInsights.PerfCounterCollector": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.ApplicationInsights.Web": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.ApplicationInsights.WindowsServer": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.CodeDom.Providers.DotNetCompilerPlatform": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Web.RedisSessionStateProvider": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/app/.dotnet/sdk/10.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

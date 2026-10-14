@@ -1,0 +1,127 @@
+# =============================================================
+# .dockerignore for Clinic Management System (ASP.NET Web Forms)
+# Excludes source code, PDB files, temp artifacts, and other
+# unnecessary files to reduce Windows container image size on EKS.
+# =============================================================
+
+# ---------------------------------------------------------------
+# Build output directories (rebuilt inside Docker build stage)
+# ---------------------------------------------------------------
+obj/
+bin/
+
+# ---------------------------------------------------------------
+# Source code files (not needed in final runtime image)
+# ---------------------------------------------------------------
+**/*.cs
+**/*.vb
+**/*.csproj
+**/*.vbproj
+**/*.sln
+**/*.user
+**/*.suo
+**/*.csproj.user
+
+# ---------------------------------------------------------------
+# PDB / debug symbol files (bloat image; not needed at runtime)
+# ---------------------------------------------------------------
+**/*.pdb
+**/*.mdb
+
+# ---------------------------------------------------------------
+# Temporary / generated build artifacts
+# ---------------------------------------------------------------
+**/*.tmp
+**/*.cache
+**/*.log
+**/*.bak
+**/*.orig
+**/TemporaryGeneratedFile_*.cs
+**/CoreCompileInputs.cache
+**/DesignTimeResolveAssemblyReferences.cache
+**/DesignTimeResolveAssemblyReferencesInput.cache
+**/*.csproj.FileListAbsolute.txt
+**/*.csproj.CoreCompileInputs.cache
+**/*.csprojAssemblyReference.cache
+**/*.csprojResolveAssemblyReference.cache
+**/*.CopyComplete
+
+# ---------------------------------------------------------------
+# Visual Studio IDE / tooling files
+# ---------------------------------------------------------------
+.vs/
+.vscode/
+*.DotSettings
+*.DotSettings.user
+*.ncrunchproject
+*.ncrunchsolution
+*.pidb
+*.userprefs
+
+# ---------------------------------------------------------------
+# NuGet packages directory (restored during Docker build stage)
+# ---------------------------------------------------------------
+packages/
+*.nupkg
+*.snupkg
+
+# ---------------------------------------------------------------
+# Test projects and test output
+# ---------------------------------------------------------------
+**/TestResults/
+**/*.Tests/
+**/*.Test/
+**/*_test/
+
+# ---------------------------------------------------------------
+# Documentation and non-runtime assets
+# ---------------------------------------------------------------
+*.md
+*.txt
+*.pdf
+*.docx
+*.xlsx
+CHANGELOG
+LICENSE
+README*
+
+# ---------------------------------------------------------------
+# Git / source control metadata
+# ---------------------------------------------------------------
+.git/
+.gitignore
+.gitattributes
+.gitmodules
+.github/
+
+# ---------------------------------------------------------------
+# CI/CD pipeline files (not needed in image)
+# ---------------------------------------------------------------
+.dockerignore
+Dockerfile*
+docker-compose*
+.travis.yml
+.circleci/
+azure-pipelines.yml
+Jenkinsfile
+*.sh
+*.ps1
+
+# ---------------------------------------------------------------
+# OS-generated files
+# ---------------------------------------------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*~
+
+# ---------------------------------------------------------------
+# Application Insights config (injected via env var at runtime)
+# ---------------------------------------------------------------
+ApplicationInsights.config
+
+# ---------------------------------------------------------------
+# Web.Debug.config (only Release transform needed in container)
+# ---------------------------------------------------------------
+Web.Debug.config

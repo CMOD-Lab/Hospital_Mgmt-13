@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,16 +6,37 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Configuration;
  
 namespace DBProject.DAL
 {
 	//Database Layer of 3 tier architecture
 	public class myDAL
     {
-		//connection string of the server database
-        private static readonly string connString =
-            System.Configuration.ConfigurationManager.ConnectionStrings["sqlCon1"].ConnectionString;
+		// Connection string resolved from environment variables (container-friendly).
+        // Migrated from Web.config XDT transform (cz-dotnet-0055) to environment variable injection.
+        // Set DB_CONNECTION_STRING or individual DB_HOST, DB_NAME, DB_USER, DB_PASSWORD env vars.
+        private static readonly string connString = GetConnectionString();
+
+        private static string GetConnectionString()
+        {
+            // Prefer a full connection string supplied via environment variable (Kubernetes Secret/ConfigMap)
+            string envConnStr = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+            if (!string.IsNullOrEmpty(envConnStr))
+                return envConnStr;
+
+            // Fall back to individual environment variables for host, catalog, user, password
+            string dbHost = Environment.GetEnvironmentVariable("DB_HOST") ?? @".\SQLEXPRESS";
+            string dbName = Environment.GetEnvironmentVariable("DB_NAME") ?? "DBProject";
+            string dbUser = Environment.GetEnvironmentVariable("DB_USER");
+            string dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
+
+            if (!string.IsNullOrEmpty(dbUser) && !string.IsNullOrEmpty(dbPassword))
+                return $"Data Source={dbHost};Initial Catalog={dbName};User ID={dbUser};Password={dbPassword};";
+
+            // Fall back to Integrated Security (local dev only)
+            return $"Data Source={dbHost};Initial Catalog={dbName};Integrated Security=True;";
+        }
 
 
 

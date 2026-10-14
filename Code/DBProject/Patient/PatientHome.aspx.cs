@@ -25,7 +25,7 @@ namespace DBProject
         {
             myDAL objmyDAl = new myDAL();
 
-            int pid = (int)Session["idoriginal"];
+            int pid = (int)HttpContext.Current.Session["idoriginal"];
 
             string name      = "";
             string phone     = "";

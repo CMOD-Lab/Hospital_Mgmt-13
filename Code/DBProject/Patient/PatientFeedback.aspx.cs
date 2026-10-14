@@ -18,7 +18,7 @@ namespace DBProject
         {
 			if (!IsPostBack)
 			{
-				Session["aID"] = "";
+				HttpContext.Current.Session["aID"] = "";
 				pendingFeedback(sender, e);
 			}
         }
@@ -32,7 +32,7 @@ namespace DBProject
         {
             myDAL objmyDAl = new myDAL();
 
-            int pid = (int)Session["idoriginal"];
+            int pid = (int)HttpContext.Current.Session["idoriginal"];
 
             string dName = "";
             string timings = "";
@@ -53,7 +53,7 @@ namespace DBProject
 
             else
             {
-                Session["aID"] = aID;
+                HttpContext.Current.Session["aID"] = aID;
 
                 FDoctor.Text = "Your feedback for the appointment with Doctor " + dName + " is pending. Kindly give it.";
                 FTimings.Text = "The Appointment Timings were : " + timings;
@@ -76,7 +76,7 @@ namespace DBProject
         {
             myDAL objmyDAl = new myDAL();
 
-            int aID = (int)Session["aID"];
+            int aID = (int)HttpContext.Current.Session["aID"];
 
 
             int rating = Convert.ToInt32(List.SelectedItem.Value);

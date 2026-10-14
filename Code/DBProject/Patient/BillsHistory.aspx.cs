@@ -27,7 +27,7 @@ namespace DBProject
             DataTable DT = new DataTable();
 
 
-            int id = (int)Session["idoriginal"];
+            int id = (int)HttpContext.Current.Session["idoriginal"];
 
 
             int status = objmyDAl.getBillHistory(id, ref DT);

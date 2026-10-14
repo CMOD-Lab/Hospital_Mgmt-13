@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dbproject
+  labels:
+    name: dbproject
+    app: dbproject
+    environment: production
+    managed-by: kubectl
